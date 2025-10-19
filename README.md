@@ -1,45 +1,21 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub主页美化元素</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #0d1117;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* 从顶部开始对齐 */
-            min-height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px; /* 调整元素之间的间距 */
-            max-width: 900px;
-            width: 100%;
-            padding-top: 0; /* 确保顶部没有内边距 */
-        }
-        .element {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="element">
-            <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=4000&pause=600&center=true&vCenter=true&multiline=true&width=435&height=140&lines=%E5%B0%91%E5%B9%B4%E5%90%AC%E9%9B%A8%E6%AD%8C%E6%A5%BC%E4%B8%8A%EF%BC%8C%E7%BA%A2%E7%83%9B%E6%98%8F%E7%BD%97%E5%B8%90%E3%80%82;%E5%A3%AE%E5%B9%B4%E5%90%AC%E9%9B%A8%E5%AE%A2%E8%88%9F%E4%B8%AD%EF%BC%8C%E6%B1%9F%E9%98%94%E4%BA%91%E4%BD%8E%E3%80%81%E6%96%AD%E9%9B%81%E5%8F%AB%E8%A5%BF%E9%A3%8E%E3%80%82;%E8%80%8C%E4%BB%8A%E5%90%AC%E9%9B%A8%E5%83%A7%E5%BA%90%E4%B8%8D%EF%BC%8C%E9%AC%93%E5%B7%B2%E6%98%9F%E6%98%9F%E4%B9%9F%E3%80%82;%E6%82%B2%E6%AC%A2%E7%A6%BB%E5%90%88%E6%80%BB%E6%97%A0%E6%83%85%EF%BC%8C%E4%B8%80%E4%BB%BB%E9%98%B6%E5%89%8D%E3%80%81%E7%82%B9%E6%BB%B4%E5%88%B0%E5%A4%A9%E6%98%8E%E3%80%82" alt="Typing SVG">
-        </div>
-        <div class="element">
-            <!-- 活动统计图 -->
-            <img src="https://github-readme-activity-graph.vercel.app/graph?username=BJKJKZHOU&theme=react-dark" alt="Activity Graph">
-        </div>
-    </div>
-</body>
-</html>
+
+<!--
+**BJKJKZHOU/BJKJKZHOU** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
+
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=4000&pause=600&center=true&vCenter=true&multiline=true&width=435&height=140&lines=%E5%B0%91%E5%B9%B4%E5%90%AC%E9%9B%A8%E6%AD%8C%E6%A5%BC%E4%B8%8A%EF%BC%8C%E7%BA%A2%E7%83%9B%E6%98%8F%E7%BD%97%E5%B8%90%E3%80%82;%E5%A3%AE%E5%B9%B4%E5%90%AC%E9%9B%A8%E5%AE%A2%E8%88%9F%E4%B8%AD%EF%BC%8C%E6%B1%9F%E9%98%94%E4%BA%91%E4%BD%8E%E3%80%81%E6%96%AD%E9%9B%81%E5%8F%AB%E8%A5%BF%E9%A3%8E%E3%80%82;%E8%80%8C%E4%BB%8A%E5%90%AC%E9%9B%A8%E5%83%A7%E5%BA%90%E4%B8%8B%EF%BC%8C%E9%AC%93%E5%B7%B2%E6%98%9F%E6%98%9F%E4%B9%9F%E3%80%82;%E6%82%B2%E6%AC%A2%E7%A6%BB%E5%90%88%E6%80%BB%E6%97%A0%E6%83%85%EF%BC%8C%E4%B8%80%E4%BB%BB%E9%98%B6%E5%89%8D%E3%80%81%E7%82%B9%E6%BB%B4%E5%88%B0%E5%A4%A9%E6%98%8E%E3%80%82" alt="Typing SVG">
+  <br>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=BJKJKZHOU&theme=react-dark" alt="Activity Graph">
+</div>
