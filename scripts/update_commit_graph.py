@@ -184,11 +184,10 @@ def make_polyline(values, x0, y0, width, height, ymax=None):
 
 def make_svg(days, repos):
     width = 1280
-    height = 610
     left = 82
     right = 62
-    top = 118
-    plot_height = 270
+    top = 112
+    plot_height = 235
     plot_width = width - left - right
 
     counts = total_commit_counts(repos, days)
@@ -203,6 +202,12 @@ def make_svg(days, repos):
         reverse=True,
     )
     watchlist = ranked_repos[:WATCHLIST_SIZE]
+
+    row_height = 34
+    watch_header_y = top + plot_height + 58
+    watch_top = watch_header_y + 24
+    footer_gap = 38
+    height = max(470, watch_top + max(len(watchlist), 1) * row_height + footer_gap)
 
     def x_pos(index):
         if len(days) == 1:
@@ -236,11 +241,11 @@ def make_svg(days, repos):
         '</defs>',
         '<rect width="100%" height="100%" fill="#0d1117" rx="8"/>',
         '<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">',
-        '<text x="82" y="42" fill="#f0f6fc" font-size="23" font-weight="650">Zhou Heng&apos;s Commit Market</text>',
-        f'<text x="82" y="72" fill="#8b949e" font-size="13">{len(days)}D · total activity</text>',
-        f'<text x="82" y="102" fill="#f0f6fc" font-size="24" font-weight="650">{total}</text>',
-        f'<text x="142" y="102" fill="{change_color(overall_change)}" font-size="14" font-weight="600">{escape(change_text(overall_change))}</text>',
-        '<text x="1218" y="42" fill="#8b949e" font-size="12" text-anchor="end">7D avg vs previous 7D</text>',
+        '<text x="82" y="40" fill="#f0f6fc" font-size="23" font-weight="650">Zhou Heng&apos;s Commit Market</text>',
+        f'<text x="82" y="68" fill="#8b949e" font-size="13">{len(days)}D · total activity</text>',
+        f'<text x="82" y="96" fill="#f0f6fc" font-size="24" font-weight="650">{total}</text>',
+        f'<text x="142" y="96" fill="{change_color(overall_change)}" font-size="14" font-weight="600">{escape(change_text(overall_change))}</text>',
+        '<text x="1218" y="40" fill="#8b949e" font-size="12" text-anchor="end">7D avg vs previous 7D</text>',
     ]
 
     grid_levels = [0, ymax / 2, ymax]
@@ -266,21 +271,19 @@ def make_svg(days, repos):
         ]
     )
 
-    if values:
+    if values and values[-1] > 0:
         last_x = x_pos(len(values) - 1)
         last_y = y_pos(values[-1])
         svg.append(f'<circle cx="{last_x:.1f}" cy="{last_y:.1f}" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>')
         svg.append(f'<rect x="{last_x-16:.1f}" y="{last_y-29:.1f}" width="32" height="19" rx="4" fill="#238636"/>')
         svg.append(f'<text x="{last_x:.1f}" y="{last_y-15:.1f}" fill="#ffffff" font-size="11" text-anchor="middle">{values[-1]}</text>')
 
-    watch_top = 442
-    svg.append('<text x="82" y="428" fill="#8b949e" font-size="12" font-weight="600">WATCHLIST</text>')
-    svg.append('<text x="735" y="428" fill="#8b949e" font-size="11" text-anchor="end">31D COMMITS</text>')
-    svg.append('<text x="865" y="428" fill="#8b949e" font-size="11" text-anchor="end">7D CHANGE</text>')
+    svg.append(f'<text x="82" y="{watch_header_y}" fill="#8b949e" font-size="12" font-weight="600">WATCHLIST</text>')
+    svg.append(f'<text x="735" y="{watch_header_y}" fill="#8b949e" font-size="11" text-anchor="end">31D COMMITS</text>')
+    svg.append(f'<text x="865" y="{watch_header_y}" fill="#8b949e" font-size="11" text-anchor="end">7D CHANGE</text>')
 
-    row_height = 34
-    spark_x = 925
-    spark_width = 285
+    spark_x = 915
+    spark_width = 300
     spark_height = 22
 
     for row, (repo, repo_counts) in enumerate(watchlist):
@@ -300,7 +303,7 @@ def make_svg(days, repos):
         if spark_points:
             svg.append(f'<polyline points="{spark_points}" fill="none" stroke="{spark_color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>')
 
-    footer_y = height - 18
+    footer_y = height - 16
     excluded = ", ".join(sorted(EXCLUDED_REPOS))
     svg.extend(
         [
