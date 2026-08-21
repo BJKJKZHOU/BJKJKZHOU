@@ -313,12 +313,16 @@ def make_svg(chart_days, all_days, repos):
             segments.append(f"{candle_x(index):.1f},{y_price(value):.1f}")
         if len(segments) >= 2:
             svg.append(
-                f'<polyline points="{" ".join(segments)}" fill="none" stroke="{color}" stroke-width="1.8" '
-                f'stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round"/>'
+                f'<polyline points="{" ".join(segments)}" fill="none" stroke="{color}" stroke-width="2.0" '
+                f'stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>'
             )
 
-    svg.append('<text x="82" y="116" fill="#d29922" font-size="10">MA2</text>')
-    svg.append('<text x="116" y="116" fill="#58a6ff" font-size="10">MA4</text>')
+    latest_ma2 = next((value for value in reversed(ma2) if value is not None), None)
+    latest_ma4 = next((value for value in reversed(ma4) if value is not None), None)
+    ma2_text = f"MA2 {latest_ma2:.1f}" if latest_ma2 is not None else "MA2 --"
+    ma4_text = f"MA4 {latest_ma4:.1f}" if latest_ma4 is not None else "MA4 --"
+    svg.append(f'<text x="82" y="116" fill="#d29922" font-size="11" font-weight="600">{ma2_text}</text>')
+    svg.append(f'<text x="150" y="116" fill="#58a6ff" font-size="11" font-weight="600">{ma4_text}</text>')
 
     latest_close = candles[-1]["close"] if candles else latest_index
     latest_y = y_price(latest_close)
