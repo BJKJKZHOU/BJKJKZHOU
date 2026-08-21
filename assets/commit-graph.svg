@@ -17,10 +17,10 @@
 <text x="1230" y="200.7" fill="#8b949e" font-size="11">250</text>
 <line x1="82" y1="124.0" x2="1218" y2="124.0" stroke="#21262d" stroke-width="1"/>
 <text x="1230" y="128.0" fill="#8b949e" font-size="11">375</text>
-<polyline points="203.7,300.9 284.9,242.7 366.0,207.6 447.1,249.1 528.3,273.9 609.4,311.1 690.6,342.0 771.7,342.0 852.9,334.6 934.0,334.6 1015.1,279.6 1096.3,194.4 1177.4,193.1" fill="none" stroke="#d29922" stroke-width="1.8" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round"/>
-<polyline points="366.0,254.3 447.1,245.9 528.3,240.8 609.4,280.1 690.6,308.0 771.7,326.6 852.9,338.3 934.0,338.3 1015.1,307.1 1096.3,264.5 1177.4,236.3" fill="none" stroke="#58a6ff" stroke-width="1.8" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="82" y="116" fill="#d29922" font-size="10">MA2</text>
-<text x="116" y="116" fill="#58a6ff" font-size="10">MA4</text>
+<polyline points="203.7,300.9 284.9,242.7 366.0,207.6 447.1,249.1 528.3,273.9 609.4,311.1 690.6,342.0 771.7,342.0 852.9,334.6 934.0,334.6 1015.1,279.6 1096.3,194.4 1177.4,193.1" fill="none" stroke="#d29922" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="366.0,254.3 447.1,245.9 528.3,240.8 609.4,280.1 690.6,308.0 771.7,326.6 852.9,338.3 934.0,338.3 1015.1,307.1 1096.3,264.5 1177.4,236.3" fill="none" stroke="#58a6ff" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="82" y="116" fill="#d29922" font-size="11" font-weight="600">MA2 256.2</text>
+<text x="150" y="116" fill="#58a6ff" font-size="11" font-weight="600">MA4 181.8</text>
 <line x1="82" y1="214.5" x2="1218" y2="214.5" stroke="#f85149" stroke-width="1" stroke-dasharray="5 5" stroke-opacity="0.55"/>
 <rect x="1226" y="204.5" width="48" height="20" rx="3" fill="#f85149"/>
 <text x="1250.0" y="218.5" fill="#ffffff" font-size="10" text-anchor="middle">219.4</text>
@@ -84,6 +84,6 @@
 <text x="865" y="514" fill="#f85149" font-size="13" font-weight="600" text-anchor="end">-100.0%</text>
 <polyline points="925.0,520.0 934.5,520.0 944.0,520.0 953.5,520.0 963.0,516.9 972.5,520.0 982.0,520.0 991.5,520.0 1001.0,520.0 1010.5,520.0 1020.0,520.0 1029.5,520.0 1039.0,520.0 1048.5,520.0 1058.0,520.0 1067.5,520.0 1077.0,520.0 1086.5,516.9 1096.0,498.0 1105.5,520.0 1115.0,520.0 1124.5,520.0 1134.0,516.9 1143.5,520.0 1153.0,520.0 1162.5,520.0 1172.0,520.0 1181.5,520.0 1191.0,520.0 1200.5,520.0 1210.0,520.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="82" y="564" fill="#6e7681" font-size="10">Index 100 = recent 7D matches prior 56D weekly baseline · log scale · Excludes BJKJKZHOU/BJKJKZHOU</text>
-<text x="1218" y="564" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-08-21 12:59 CST</text>
+<text x="1218" y="564" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-08-21 13:04 CST</text>
 </g>
 </svg>
