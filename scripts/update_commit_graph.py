@@ -171,6 +171,17 @@ def weekly_candles(chart_days, index_by_day, commit_counts):
     return candles
 
 
+def moving_average(values, period):
+    result = []
+    for index in range(len(values)):
+        if index + 1 < period:
+            result.append(None)
+            continue
+        window = values[index - period + 1:index + 1]
+        result.append(sum(window) / period)
+    return result
+
+
 def activity_change(values):
     recent = values[-7:]
     previous = values[-14:-7]
@@ -257,6 +268,7 @@ def make_svg(chart_days, all_days, repos):
 
     def y_price(value):
         return price_top + price_height - (value - ymin) / (ymax - ymin) * price_height
+
     def candle_x(index):
         if len(candles) == 1:
             return left + plot_width / 2
@@ -272,7 +284,7 @@ def make_svg(chart_days, all_days, repos):
     svg = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
         '<title id="title">Zhou Heng&apos;s Development Market</title>',
-        f'<desc id="desc">{len(chart_days)} day development activity index rendered as weekly candlesticks with close trend, commit volume and repository watchlist.</desc>',
+        f'<desc id="desc">{len(chart_days)} day development activity index rendered as weekly candlesticks with moving averages, latest index line, commit volume and repository watchlist.</desc>',
         '<rect width="100%" height="100%" fill="#0d1117" rx="8"/>',
         '<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">',
         '<text x="82" y="42" fill="#f0f6fc" font-size="23" font-weight="650">Zhou Heng&apos;s Development Market</text>',
@@ -289,12 +301,41 @@ def make_svg(chart_days, all_days, repos):
         svg.append(f'<line x1="{left}" y1="{y:.1f}" x2="{width-right}" y2="{y:.1f}" stroke="#21262d" stroke-width="1"/>')
         svg.append(f'<text x="{width-right+12}" y="{y+4:.1f}" fill="#8b949e" font-size="11">{value:.0f}</text>')
 
-    if len(candles) >= 2:
-        close_points = " ".join(f"{candle_x(i):.1f},{y_price(candle['close']):.1f}" for i, candle in enumerate(candles))
-        svg.append(
-            f'<polyline points="{close_points}" fill="none" stroke="#8b949e" stroke-width="1.6" '
-            f'stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>'
-        )
+    close_values = [candle["close"] for candle in candles]
+    ma2 = moving_average(close_values, 2)
+    ma4 = moving_average(close_values, 4)
+
+    for values, color in ((ma2, "#d29922"), (ma4, "#58a6ff")):
+        segments = []
+        for index, value in enumerate(values):
+            if value is None:
+                continue
+            segments.append(f"{candle_x(index):.1f},{y_price(value):.1f}")
+        if len(segments) >= 2:
+            svg.append(
+                f'<polyline points="{" ".join(segments)}" fill="none" stroke="{color}" stroke-width="1.8" '
+                f'stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round"/>'
+            )
+
+    svg.append('<text x="82" y="116" fill="#d29922" font-size="10">MA2</text>')
+    svg.append('<text x="116" y="116" fill="#58a6ff" font-size="10">MA4</text>')
+
+    latest_close = candles[-1]["close"] if candles else latest_index
+    latest_y = y_price(latest_close)
+    latest_up = candles[-1]["close"] >= candles[-1]["open"] if candles else True
+    latest_color = "#3fb950" if latest_up else "#f85149"
+    svg.append(
+        f'<line x1="{left}" y1="{latest_y:.1f}" x2="{width-right}" y2="{latest_y:.1f}" '
+        f'stroke="{latest_color}" stroke-width="1" stroke-dasharray="5 5" stroke-opacity="0.55"/>'
+    )
+    label_width = 48
+    label_x = width - right + 8
+    label_y = max(price_top + 2, min(latest_y - 10, price_top + price_height - 22))
+    svg.append(f'<rect x="{label_x}" y="{label_y:.1f}" width="{label_width}" height="20" rx="3" fill="{latest_color}"/>')
+    svg.append(
+        f'<text x="{label_x + label_width/2:.1f}" y="{label_y + 14:.1f}" fill="#ffffff" font-size="10" '
+        f'text-anchor="middle">{latest_close:.1f}</text>'
+    )
 
     month_seen = set()
     for index, candle in enumerate(candles):
@@ -330,13 +371,16 @@ def make_svg(chart_days, all_days, repos):
             )
 
     svg.append(f'<text x="{left}" y="{volume_top-8}" fill="#6e7681" font-size="10">VOLUME</text>')
-    svg.append(f'<text x="82" y="{watch_header_y}" fill="#8b949e" font-size="12" font-weight="600">WATCHLIST</text>')
-    svg.append(f'<text x="735" y="{watch_header_y}" fill="#8b949e" font-size="11" text-anchor="end">31D COMMITS</text>')
-    svg.append(f'<text x="865" y="{watch_header_y}" fill="#8b949e" font-size="11" text-anchor="end">7D CHANGE</text>')
+
+    watch_y = watch_header_y
+    svg.append(f'<text x="82" y="{watch_y}" fill="#8b949e" font-size="12" font-weight="600">WATCHLIST</text>')
+    svg.append(f'<text x="735" y="{watch_y}" fill="#8b949e" font-size="11" text-anchor="end">31D COMMITS</text>')
+    svg.append(f'<text x="865" y="{watch_y}" fill="#8b949e" font-size="11" text-anchor="end">7D CHANGE</text>')
 
     spark_x = 925
     spark_width = 285
     spark_height = 22
+
     for row, (repo, repo_counts) in enumerate(watchlist):
         y = watch_top + row * row_height
         repo_values = [repo_counts.get(day, 0) for day in recent_31]
@@ -345,6 +389,7 @@ def make_svg(chart_days, all_days, repos):
         short_name = repo.split("/", 1)[-1]
         spark_points = make_polyline(repo_values, spark_x, y - 16, spark_width, spark_height)
         spark_color = change_color(repo_change)
+
         if row:
             svg.append(f'<line x1="82" y1="{y-24}" x2="1218" y2="{y-24}" stroke="#21262d" stroke-width="1"/>')
         svg.append(f'<text x="82" y="{y}" fill="#f0f6fc" font-size="14" font-weight="600">{escape(short_name)}</text>')
@@ -368,14 +413,21 @@ def main():
     end_day = datetime.now(LOCAL_TZ).date()
     chart_start = end_day - timedelta(days=DAYS - 1)
     data_start = chart_start - timedelta(days=BASELINE_DAYS + 7)
-    all_days = [data_start + timedelta(days=i) for i in range((end_day - data_start).days + 1)]
-    chart_days = [chart_start + timedelta(days=i) for i in range(DAYS)]
+
+    all_days = [data_start + timedelta(days=index) for index in range((end_day - data_start).days + 1)]
+    chart_days = [chart_start + timedelta(days=index) for index in range(DAYS)]
+
     groups = query_contributions(data_start, end_day)
     repos = repo_commit_counts(groups, data_start, end_day)
+
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(make_svg(chart_days, all_days, repos), encoding="utf-8")
+
     chart_counts = total_commit_counts(repos, chart_days)
-    print(f"Generated {OUTPUT}: {sum(chart_counts.values())} commits across {len(repos)} repositories and {DAYS} chart days")
+    print(
+        f"Generated {OUTPUT}: {sum(chart_counts.values())} commits across "
+        f"{len(repos)} repositories and {DAYS} chart days"
+    )
 
 
 if __name__ == "__main__":
