@@ -14,7 +14,7 @@ from zoneinfo import ZoneInfo
 USERNAME = os.getenv("GITHUB_GRAPH_USER", "BJKJKZHOU")
 TOKEN = os.environ["PROFILE_TOKEN"]
 LOCAL_TZ = ZoneInfo(os.getenv("GRAPH_TIMEZONE", "Asia/Shanghai"))
-DAYS = int(os.getenv("GRAPH_DAYS", "31"))
+DAYS = int(os.getenv("GRAPH_DAYS", "90"))
 EXCLUDED_REPOS = {
     item.strip()
     for item in os.getenv("GRAPH_EXCLUDED_REPOS", "BJKJKZHOU/BJKJKZHOU").split(",")
@@ -22,6 +22,7 @@ EXCLUDED_REPOS = {
 }
 OUTPUT = Path(os.getenv("GRAPH_OUTPUT", "assets/commit-graph.svg"))
 WATCHLIST_SIZE = int(os.getenv("GRAPH_WATCHLIST_SIZE", "4"))
+BASELINE_DAYS = int(os.getenv("GRAPH_BASELINE_DAYS", "56"))
 
 GRAPHQL_URL = "https://api.github.com/graphql"
 QUERY = r"""
@@ -70,7 +71,7 @@ def query_contributions(start_day, end_day):
         headers={
             "Authorization": f"Bearer {TOKEN}",
             "Content-Type": "application/json",
-            "User-Agent": "BJKJKZHOU-profile-commit-graph",
+            "User-Agent": "BJKJKZHOU-profile-commit-market",
         },
         method="POST",
     )
@@ -116,19 +117,82 @@ def total_commit_counts(repos, days):
     }
 
 
-def nice_axis_max(value: int) -> int:
-    if value <= 1:
-        return 1
+def nice_axis_bounds(values):
+    if not values:
+        return 0.0, 100.0
 
-    exponent = 10 ** math.floor(math.log10(value))
-    scaled = value / exponent
-    if scaled <= 2:
-        step = 2
-    elif scaled <= 5:
-        step = 5
+    lo = min(values)
+    hi = max(values)
+    if math.isclose(lo, hi):
+        pad = max(abs(lo) * 0.15, 10.0)
     else:
-        step = 10
-    return int(step * exponent)
+        pad = (hi - lo) * 0.15
+
+    lo = max(0.0, lo - pad)
+    hi = hi + pad
+    step = 25.0
+    lo = math.floor(lo / step) * step
+    hi = math.ceil(hi / step) * step
+    if hi <= lo:
+        hi = lo + step
+    return lo, hi
+
+
+def activity_index_series(counts, all_days):
+    """7D activity relative to the preceding 56D weekly baseline.
+
+    100 means the recent seven days equal the user's preceding eight-week
+    average weekly activity. The value is capped to keep rare burst weeks from
+    flattening the rest of the chart.
+    """
+    values = {}
+    for index, day in enumerate(all_days):
+        recent_start = max(0, index - 6)
+        recent = all_days[recent_start : index + 1]
+        recent_total = sum(counts.get(item, 0) for item in recent)
+
+        baseline_end = recent_start
+        baseline_start = max(0, baseline_end - BASELINE_DAYS)
+        baseline = all_days[baseline_start:baseline_end]
+        baseline_total = sum(counts.get(item, 0) for item in baseline)
+
+        if len(baseline) < 14:
+            values[day] = None
+            continue
+
+        baseline_weekly = baseline_total * 7.0 / len(baseline)
+        if baseline_weekly <= 0:
+            values[day] = 100.0 if recent_total <= 0 else 200.0
+        else:
+            values[day] = max(0.0, min(300.0, 100.0 * recent_total / baseline_weekly))
+
+    return values
+
+
+def weekly_candles(chart_days, index_by_day, commit_counts):
+    weeks = defaultdict(list)
+    for day in chart_days:
+        weeks[day - timedelta(days=day.weekday())].append(day)
+
+    candles = []
+    for week_start in sorted(weeks):
+        days = weeks[week_start]
+        points = [(day, index_by_day.get(day)) for day in days if index_by_day.get(day) is not None]
+        if not points:
+            continue
+        values = [value for _, value in points]
+        candles.append(
+            {
+                "start": week_start,
+                "end": days[-1],
+                "open": values[0],
+                "high": max(values),
+                "low": min(values),
+                "close": values[-1],
+                "volume": sum(commit_counts.get(day, 0) for day in days),
+            }
+        )
+    return candles
 
 
 def activity_change(values):
@@ -161,11 +225,10 @@ def change_color(change):
     return "#8b949e"
 
 
-def make_polyline(values, x0, y0, width, height, ymax=None):
+def make_polyline(values, x0, y0, width, height):
     if not values:
         return ""
-    if ymax is None:
-        ymax = max(values, default=0)
+    ymax = max(values, default=0)
     ymax = max(ymax, 1)
 
     def x_pos(index):
@@ -182,113 +245,150 @@ def make_polyline(values, x0, y0, width, height, ymax=None):
     )
 
 
-def make_svg(days, repos):
+def make_svg(chart_days, all_days, repos):
     width = 1280
     left = 82
     right = 62
-    top = 112
-    plot_height = 235
+    price_top = 124
+    price_height = 218
+    volume_top = 357
+    volume_height = 54
     plot_width = width - left - right
 
-    counts = total_commit_counts(repos, days)
-    values = [counts.get(day, 0) for day in days]
-    ymax = nice_axis_max(max(values, default=0))
-    total = sum(values)
-    overall_change = activity_change(values)
+    recent_31 = chart_days[-31:]
+    recent_7 = chart_days[-7:]
+
+    all_counts = total_commit_counts(repos, all_days)
+    chart_counts = {day: all_counts.get(day, 0) for day in chart_days}
+    index_by_day = activity_index_series(all_counts, all_days)
+    candles = weekly_candles(chart_days, index_by_day, chart_counts)
+
+    latest_index = next(
+        (index_by_day.get(day) for day in reversed(chart_days) if index_by_day.get(day) is not None),
+        100.0,
+    )
+    seven_days_ago = chart_days[-8] if len(chart_days) >= 8 else chart_days[0]
+    previous_index = index_by_day.get(seven_days_ago)
+    if previous_index and previous_index > 0:
+        index_change = (latest_index - previous_index) / previous_index * 100.0
+    else:
+        index_change = None
 
     ranked_repos = sorted(
         repos.items(),
-        key=lambda item: sum(item[1].get(day, 0) for day in days),
+        key=lambda item: sum(item[1].get(day, 0) for day in recent_31),
         reverse=True,
     )
+    ranked_repos = [item for item in ranked_repos if sum(item[1].get(day, 0) for day in recent_31) > 0]
     watchlist = ranked_repos[:WATCHLIST_SIZE]
 
+    recent_total = sum(chart_counts.get(day, 0) for day in recent_7)
+    active_days = sum(1 for day in recent_7 if chart_counts.get(day, 0) > 0)
+    active_repos = sum(
+        1 for _, repo_counts in repos.items()
+        if any(repo_counts.get(day, 0) > 0 for day in recent_7)
+    )
+    top_repo_total = max(
+        (sum(repo_counts.get(day, 0) for day in recent_7) for repo_counts in repos.values()),
+        default=0,
+    )
+    focus = (100.0 * top_repo_total / recent_total) if recent_total else 0.0
+
     row_height = 34
-    watch_header_y = top + plot_height + 58
-    watch_top = watch_header_y + 24
-    footer_gap = 38
-    height = max(470, watch_top + max(len(watchlist), 1) * row_height + footer_gap)
+    watch_header_y = 462
+    watch_top = 480
+    footer_pad = 34
+    height = max(535, watch_top + max(len(watchlist), 1) * row_height + footer_pad)
 
-    def x_pos(index):
-        if len(days) == 1:
+    candle_values = []
+    for candle in candles:
+        candle_values.extend([candle["low"], candle["high"]])
+    ymin, ymax = nice_axis_bounds(candle_values or [latest_index])
+
+    def y_price(value):
+        return price_top + price_height - (value - ymin) / (ymax - ymin) * price_height
+
+    def candle_x(index):
+        if len(candles) == 1:
             return left + plot_width / 2
-        return left + index * plot_width / (len(days) - 1)
+        slot = plot_width / len(candles)
+        return left + slot * (index + 0.5)
 
-    def y_pos(value):
-        return top + plot_height - (value / ymax) * plot_height
-
-    points = " ".join(
-        f"{x_pos(index):.1f},{y_pos(value):.1f}"
-        for index, value in enumerate(values)
-    )
-    area_points = (
-        f"{x_pos(0):.1f},{top + plot_height:.1f} "
-        + points
-        + f" {x_pos(len(days)-1):.1f},{top + plot_height:.1f}"
-    )
+    slot = plot_width / max(len(candles), 1)
+    body_width = min(24.0, slot * 0.42)
+    max_volume = max((item["volume"] for item in candles), default=1)
 
     last_updated = datetime.now(LOCAL_TZ).strftime("%Y-%m-%d %H:%M %Z")
+    excluded = ", ".join(sorted(EXCLUDED_REPOS))
 
     svg = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
-        '<title id="title">Zhou Heng&apos;s Commit Market</title>',
-        f'<desc id="desc">Daily Git commit activity for the last {len(days)} days with repository watchlist.</desc>',
-        '<defs>',
-        '<linearGradient id="area" x1="0" y1="0" x2="0" y2="1">',
-        '<stop offset="0%" stop-color="#3fb950" stop-opacity="0.28"/>',
-        '<stop offset="100%" stop-color="#3fb950" stop-opacity="0.02"/>',
-        '</linearGradient>',
-        '</defs>',
+        '<title id="title">Zhou Heng&apos;s Development Market</title>',
+        f'<desc id="desc">{len(chart_days)} day development activity index rendered as weekly candlesticks with commit volume and repository watchlist.</desc>',
         '<rect width="100%" height="100%" fill="#0d1117" rx="8"/>',
         '<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">',
-        '<text x="82" y="40" fill="#f0f6fc" font-size="23" font-weight="650">Zhou Heng&apos;s Commit Market</text>',
-        f'<text x="82" y="68" fill="#8b949e" font-size="13">{len(days)}D · total activity</text>',
-        f'<text x="82" y="96" fill="#f0f6fc" font-size="24" font-weight="650">{total}</text>',
-        f'<text x="142" y="96" fill="{change_color(overall_change)}" font-size="14" font-weight="600">{escape(change_text(overall_change))}</text>',
-        '<text x="1218" y="40" fill="#8b949e" font-size="12" text-anchor="end">7D avg vs previous 7D</text>',
+        '<text x="82" y="42" fill="#f0f6fc" font-size="23" font-weight="650">Zhou Heng&apos;s Development Market</text>',
+        f'<text x="82" y="70" fill="#8b949e" font-size="13">{len(chart_days)}D · weekly candles · activity index</text>',
+        f'<text x="82" y="101" fill="#f0f6fc" font-size="25" font-weight="650">{latest_index:.1f}</text>',
+        f'<text x="158" y="101" fill="{change_color(index_change)}" font-size="14" font-weight="600">{escape(change_text(index_change))}</text>',
+        f'<text x="1218" y="42" fill="#8b949e" font-size="12" text-anchor="end">7D {recent_total} commits · {active_days}/7 active days</text>',
+        f'<text x="1218" y="66" fill="#8b949e" font-size="12" text-anchor="end">Breadth {active_repos} · Focus {focus:.0f}%</text>',
     ]
 
-    grid_levels = [0, ymax / 2, ymax]
-    for level in grid_levels:
-        y = y_pos(level)
-        label = str(int(level)) if float(level).is_integer() else f"{level:.1f}"
+    grid_count = 4
+    for i in range(grid_count):
+        value = ymin + (ymax - ymin) * i / (grid_count - 1)
+        y = y_price(value)
         svg.append(f'<line x1="{left}" y1="{y:.1f}" x2="{width-right}" y2="{y:.1f}" stroke="#21262d" stroke-width="1"/>')
-        svg.append(f'<text x="{width-right+12}" y="{y+4:.1f}" fill="#8b949e" font-size="11">{label}</text>')
+        svg.append(f'<text x="{width-right+12}" y="{y+4:.1f}" fill="#8b949e" font-size="11">{value:.0f}</text>')
 
-    tick_indices = sorted(set([0, 7, 14, 21, 28, len(days) - 1]))
-    for index in tick_indices:
-        if index < 0 or index >= len(days):
-            continue
-        x = x_pos(index)
-        day = days[index]
-        label = day.strftime("%b %d")
-        svg.append(f'<text x="{x:.1f}" y="{top+plot_height+24}" fill="#8b949e" font-size="11" text-anchor="middle">{label}</text>')
+    month_seen = set()
+    for index, candle in enumerate(candles):
+        x = candle_x(index)
+        up = candle["close"] >= candle["open"]
+        color = "#3fb950" if up else "#f85149"
+        y_open = y_price(candle["open"])
+        y_close = y_price(candle["close"])
+        y_high = y_price(candle["high"])
+        y_low = y_price(candle["low"])
 
-    svg.extend(
-        [
-            f'<polygon points="{area_points}" fill="url(#area)"/>',
-            f'<polyline points="{points}" fill="none" stroke="#3fb950" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
-        ]
-    )
+        svg.append(f'<line x1="{x:.1f}" y1="{y_high:.1f}" x2="{x:.1f}" y2="{y_low:.1f}" stroke="{color}" stroke-width="2"/>')
+        body_top = min(y_open, y_close)
+        body_height = max(abs(y_close - y_open), 3.0)
+        svg.append(
+            f'<rect x="{x-body_width/2:.1f}" y="{body_top:.1f}" width="{body_width:.1f}" height="{body_height:.1f}" '
+            f'fill="{color}" rx="1"><title>{candle["start"].isoformat()} · O {candle["open"]:.1f} H {candle["high"]:.1f} '
+            f'L {candle["low"]:.1f} C {candle["close"]:.1f} · {candle["volume"]} commits</title></rect>'
+        )
 
-    if values and values[-1] > 0:
-        last_x = x_pos(len(values) - 1)
-        last_y = y_pos(values[-1])
-        svg.append(f'<circle cx="{last_x:.1f}" cy="{last_y:.1f}" r="4" fill="#3fb950" stroke="#0d1117" stroke-width="2"/>')
-        svg.append(f'<rect x="{last_x-16:.1f}" y="{last_y-29:.1f}" width="32" height="19" rx="4" fill="#238636"/>')
-        svg.append(f'<text x="{last_x:.1f}" y="{last_y-15:.1f}" fill="#ffffff" font-size="11" text-anchor="middle">{values[-1]}</text>')
+        volume_h = volume_height * candle["volume"] / max_volume if max_volume else 0
+        svg.append(
+            f'<rect x="{x-body_width/2:.1f}" y="{volume_top+volume_height-volume_h:.1f}" width="{body_width:.1f}" '
+            f'height="{max(volume_h, 1):.1f}" fill="{color}" opacity="0.55"/>'
+        )
 
-    svg.append(f'<text x="82" y="{watch_header_y}" fill="#8b949e" font-size="12" font-weight="600">WATCHLIST</text>')
-    svg.append(f'<text x="735" y="{watch_header_y}" fill="#8b949e" font-size="11" text-anchor="end">31D COMMITS</text>')
-    svg.append(f'<text x="865" y="{watch_header_y}" fill="#8b949e" font-size="11" text-anchor="end">7D CHANGE</text>')
+        month_key = candle["start"].strftime("%Y-%m")
+        if index == 0 or month_key not in month_seen:
+            month_seen.add(month_key)
+            svg.append(
+                f'<text x="{x:.1f}" y="{volume_top+volume_height+22}" fill="#8b949e" font-size="11" text-anchor="middle">'
+                f'{candle["start"].strftime("%b %d")}</text>'
+            )
 
-    spark_x = 915
-    spark_width = 300
+    svg.append(f'<text x="{left}" y="{volume_top-8}" fill="#6e7681" font-size="10">VOLUME</text>')
+
+    watch_y = watch_header_y
+    svg.append(f'<text x="82" y="{watch_y}" fill="#8b949e" font-size="12" font-weight="600">WATCHLIST</text>')
+    svg.append(f'<text x="735" y="{watch_y}" fill="#8b949e" font-size="11" text-anchor="end">31D COMMITS</text>')
+    svg.append(f'<text x="865" y="{watch_y}" fill="#8b949e" font-size="11" text-anchor="end">7D CHANGE</text>')
+
+    spark_x = 925
+    spark_width = 285
     spark_height = 22
 
     for row, (repo, repo_counts) in enumerate(watchlist):
         y = watch_top + row * row_height
-        repo_values = [repo_counts.get(day, 0) for day in days]
+        repo_values = [repo_counts.get(day, 0) for day in recent_31]
         repo_total = sum(repo_values)
         repo_change = activity_change(repo_values)
         short_name = repo.split("/", 1)[-1]
@@ -303,11 +403,10 @@ def make_svg(days, repos):
         if spark_points:
             svg.append(f'<polyline points="{spark_points}" fill="none" stroke="{spark_color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>')
 
-    footer_y = height - 16
-    excluded = ", ".join(sorted(EXCLUDED_REPOS))
+    footer_y = height - 18
     svg.extend(
         [
-            f'<text x="82" y="{footer_y}" fill="#6e7681" font-size="10">Excludes {escape(excluded)}</text>',
+            f'<text x="82" y="{footer_y}" fill="#6e7681" font-size="10">Index 100 = recent 7D matches prior 56D weekly baseline · Excludes {escape(excluded)}</text>',
             f'<text x="1218" y="{footer_y}" fill="#6e7681" font-size="10" text-anchor="end">Updated {escape(last_updated)}</text>',
             '</g>',
             '</svg>',
@@ -320,19 +419,22 @@ def make_svg(days, repos):
 
 def main():
     end_day = datetime.now(LOCAL_TZ).date()
-    start_day = end_day - timedelta(days=DAYS - 1)
-    days = [start_day + timedelta(days=index) for index in range(DAYS)]
+    chart_start = end_day - timedelta(days=DAYS - 1)
+    data_start = chart_start - timedelta(days=BASELINE_DAYS + 7)
 
-    groups = query_contributions(start_day, end_day)
-    repos = repo_commit_counts(groups, start_day, end_day)
-    counts = total_commit_counts(repos, days)
+    all_days = [data_start + timedelta(days=index) for index in range((end_day - data_start).days + 1)]
+    chart_days = [chart_start + timedelta(days=index) for index in range(DAYS)]
+
+    groups = query_contributions(data_start, end_day)
+    repos = repo_commit_counts(groups, data_start, end_day)
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(make_svg(days, repos), encoding="utf-8")
+    OUTPUT.write_text(make_svg(chart_days, all_days, repos), encoding="utf-8")
 
+    chart_counts = total_commit_counts(repos, chart_days)
     print(
-        f"Generated {OUTPUT}: {sum(counts.values())} commits across "
-        f"{len(repos)} repositories and {DAYS} days"
+        f"Generated {OUTPUT}: {sum(chart_counts.values())} commits across "
+        f"{len(repos)} repositories and {DAYS} chart days"
     )
 
 

@@ -20,7 +20,8 @@ jobs:
           PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
           GITHUB_GRAPH_USER: BJKJKZHOU
           GRAPH_TIMEZONE: Asia/Shanghai
-          GRAPH_DAYS: "31"
+          GRAPH_DAYS: "90"
+          GRAPH_BASELINE_DAYS: "56"
           GRAPH_EXCLUDED_REPOS: BJKJKZHOU/BJKJKZHOU
         run: python3 scripts/update_commit_graph.py
 
