@@ -5,9 +5,9 @@
 <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
 <text x="82" y="42" fill="#f0f6fc" font-size="23" font-weight="650">Zhou Heng&apos;s Development Market</text>
 <text x="82" y="70" fill="#8b949e" font-size="13">90D · weekly candles · activity index</text>
-<text x="82" y="101" fill="#f0f6fc" font-size="25" font-weight="650">219.4</text>
-<text x="158" y="101" fill="#f85149" font-size="14" font-weight="600">-22.4%</text>
-<text x="1218" y="42" fill="#8b949e" font-size="12" text-anchor="end">7D 50 commits · 5/7 active days</text>
+<text x="82" y="101" fill="#f0f6fc" font-size="25" font-weight="650">168.5</text>
+<text x="158" y="101" fill="#f85149" font-size="14" font-weight="600">-44.4%</text>
+<text x="1218" y="42" fill="#8b949e" font-size="12" text-anchor="end">7D 30 commits · 4/7 active days</text>
 <text x="1218" y="66" fill="#8b949e" font-size="12" text-anchor="end">Breadth 1 · Focus 100%</text>
 <line x1="82" y1="342.0" x2="1218" y2="342.0" stroke="#21262d" stroke-width="1"/>
 <text x="1230" y="346.0" fill="#8b949e" font-size="11">0</text>
@@ -17,73 +17,70 @@
 <text x="1230" y="200.7" fill="#8b949e" font-size="11">250</text>
 <line x1="82" y1="124.0" x2="1218" y2="124.0" stroke="#21262d" stroke-width="1"/>
 <text x="1230" y="128.0" fill="#8b949e" font-size="11">375</text>
-<polyline points="203.7,300.9 284.9,242.7 366.0,207.6 447.1,249.1 528.3,273.9 609.4,311.1 690.6,342.0 771.7,342.0 852.9,334.6 934.0,334.6 1015.1,279.6 1096.3,194.4 1177.4,193.1" fill="none" stroke="#d29922" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
-<polyline points="366.0,254.3 447.1,245.9 528.3,240.8 609.4,280.1 690.6,308.0 771.7,326.6 852.9,338.3 934.0,338.3 1015.1,307.1 1096.3,264.5 1177.4,236.3" fill="none" stroke="#58a6ff" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="82" y="116" fill="#d29922" font-size="11" font-weight="600">MA2 256.2</text>
-<text x="150" y="116" fill="#58a6ff" font-size="11" font-weight="600">MA4 181.8</text>
-<line x1="82" y1="214.5" x2="1218" y2="214.5" stroke="#f85149" stroke-width="1" stroke-dasharray="5 5" stroke-opacity="0.55"/>
-<rect x="1226" y="204.5" width="48" height="20" rx="3" fill="#f85149"/>
-<text x="1250.0" y="218.5" fill="#ffffff" font-size="10" text-anchor="middle">219.4</text>
-<line x1="122.6" y1="300.9" x2="122.6" y2="300.9" stroke="#3fb950" stroke-width="2"/>
-<rect x="110.6" y="300.9" width="24.0" height="3.0" fill="#3fb950" rx="1"><title>2026-05-18 · O 70.8 H 70.8 L 70.8 C 70.8 · 0 commits</title></rect>
-<rect x="110.6" y="411.0" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
-<text x="122.6" y="433" fill="#8b949e" font-size="11" text-anchor="middle">May 18</text>
-<line x1="203.7" y1="300.9" x2="203.7" y2="300.9" stroke="#3fb950" stroke-width="2"/>
-<rect x="191.7" y="300.9" width="24.0" height="3.0" fill="#3fb950" rx="1"><title>2026-05-25 · O 70.8 H 70.8 L 70.8 C 70.8 · 0 commits</title></rect>
-<rect x="191.7" y="411.0" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
-<line x1="284.9" y1="184.6" x2="284.9" y2="300.9" stroke="#3fb950" stroke-width="2"/>
-<rect x="272.9" y="184.6" width="24.0" height="116.3" fill="#3fb950" rx="1"><title>2026-06-01 · O 70.8 H 270.8 L 70.8 C 270.8 · 15 commits</title></rect>
-<rect x="272.9" y="399.1" width="24.0" height="11.9" fill="#3fb950" opacity="0.55"/>
-<text x="284.9" y="433" fill="#8b949e" font-size="11" text-anchor="middle">Jun 01</text>
-<line x1="366.0" y1="175.2" x2="366.0" y2="230.7" stroke="#f85149" stroke-width="2"/>
-<rect x="354.0" y="182.1" width="24.0" height="48.6" fill="#f85149" rx="1"><title>2026-06-08 · O 275.1 H 286.8 L 191.5 C 191.5 · 11 commits</title></rect>
-<rect x="354.0" y="402.3" width="24.0" height="8.7" fill="#f85149" opacity="0.55"/>
-<line x1="447.1" y1="235.8" x2="447.1" y2="267.6" stroke="#f85149" stroke-width="2"/>
-<rect x="435.1" y="235.8" width="24.0" height="31.8" fill="#f85149" rx="1"><title>2026-06-15 · O 182.6 H 182.6 L 128.0 C 128.0 · 6 commits</title></rect>
-<rect x="435.1" y="406.2" width="24.0" height="4.8" fill="#f85149" opacity="0.55"/>
-<line x1="528.3" y1="248.7" x2="528.3" y2="280.2" stroke="#f85149" stroke-width="2"/>
-<rect x="516.3" y="262.0" width="24.0" height="18.2" fill="#f85149" rx="1"><title>2026-06-22 · O 137.6 H 160.6 L 106.3 C 106.3 · 5 commits</title></rect>
-<rect x="516.3" y="407.0" width="24.0" height="4.0" fill="#f85149" opacity="0.55"/>
-<line x1="609.4" y1="288.8" x2="609.4" y2="342.0" stroke="#f85149" stroke-width="2"/>
-<rect x="597.4" y="288.8" width="24.0" height="53.2" fill="#f85149" rx="1"><title>2026-06-29 · O 91.5 H 91.5 L 0.0 C 0.0 · 0 commits</title></rect>
-<rect x="597.4" y="411.0" width="24.0" height="1.0" fill="#f85149" opacity="0.55"/>
-<line x1="690.6" y1="342.0" x2="690.6" y2="342.0" stroke="#3fb950" stroke-width="2"/>
-<rect x="678.6" y="342.0" width="24.0" height="3.0" fill="#3fb950" rx="1"><title>2026-07-06 · O 0.0 H 0.0 L 0.0 C 0.0 · 0 commits</title></rect>
-<rect x="678.6" y="411.0" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
-<text x="690.6" y="433" fill="#8b949e" font-size="11" text-anchor="middle">Jul 06</text>
-<line x1="771.7" y1="342.0" x2="771.7" y2="342.0" stroke="#3fb950" stroke-width="2"/>
-<rect x="759.7" y="342.0" width="24.0" height="3.0" fill="#3fb950" rx="1"><title>2026-07-13 · O 0.0 H 0.0 L 0.0 C 0.0 · 0 commits</title></rect>
-<rect x="759.7" y="411.0" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
-<line x1="852.9" y1="327.2" x2="852.9" y2="342.0" stroke="#3fb950" stroke-width="2"/>
-<rect x="840.9" y="327.2" width="24.0" height="14.8" fill="#3fb950" rx="1"><title>2026-07-20 · O 0.0 H 25.4 L 0.0 C 25.4 · 1 commits</title></rect>
-<rect x="840.9" y="410.2" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
-<line x1="934.0" y1="327.2" x2="934.0" y2="342.0" stroke="#f85149" stroke-width="2"/>
-<rect x="922.0" y="327.2" width="24.0" height="14.8" fill="#f85149" rx="1"><title>2026-07-27 · O 25.4 H 25.4 L 0.0 C 0.0 · 0 commits</title></rect>
-<rect x="922.0" y="411.0" width="24.0" height="1.0" fill="#f85149" opacity="0.55"/>
-<line x1="1015.1" y1="217.2" x2="1015.1" y2="311.1" stroke="#3fb950" stroke-width="2"/>
-<rect x="1003.1" y="217.2" width="24.0" height="94.0" fill="#3fb950" rx="1"><title>2026-08-03 · O 53.1 H 214.7 L 53.1 C 214.7 · 18 commits</title></rect>
-<rect x="1003.1" y="396.7" width="24.0" height="14.3" fill="#3fb950" opacity="0.55"/>
-<text x="1015.1" y="433" fill="#8b949e" font-size="11" text-anchor="middle">Aug 03</text>
-<line x1="1096.3" y1="165.8" x2="1096.3" y2="250.4" stroke="#3fb950" stroke-width="2"/>
-<rect x="1084.3" y="171.7" width="24.0" height="51.5" fill="#3fb950" rx="1"><title>2026-08-10 · O 204.4 H 303.1 L 157.6 C 293.0 · 68 commits</title></rect>
-<rect x="1084.3" y="357.0" width="24.0" height="54.0" fill="#3fb950" opacity="0.55"/>
-<line x1="1177.4" y1="159.1" x2="1177.4" y2="214.5" stroke="#f85149" stroke-width="2"/>
-<rect x="1165.4" y="171.7" width="24.0" height="42.8" fill="#f85149" rx="1"><title>2026-08-17 · O 293.0 H 314.6 L 219.4 C 219.4 · 25 commits</title></rect>
-<rect x="1165.4" y="391.1" width="24.0" height="19.9" fill="#f85149" opacity="0.55"/>
+<polyline points="213.1,242.7 300.5,207.6 387.8,249.1 475.2,273.9 562.6,311.1 650.0,342.0 737.4,342.0 824.8,334.6 912.2,334.6 999.5,279.6 1086.9,194.4 1174.3,207.9" fill="none" stroke="#d29922" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="387.8,245.9 475.2,240.8 562.6,280.1 650.0,308.0 737.4,326.6 824.8,338.3 912.2,338.3 999.5,307.1 1086.9,264.5 1174.3,243.7" fill="none" stroke="#58a6ff" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="82" y="116" fill="#d29922" font-size="11" font-weight="600">MA2 230.7</text>
+<text x="150" y="116" fill="#58a6ff" font-size="11" font-weight="600">MA4 169.0</text>
+<line x1="82" y1="244.1" x2="1218" y2="244.1" stroke="#f85149" stroke-width="1" stroke-dasharray="5 5" stroke-opacity="0.55"/>
+<rect x="1226" y="234.1" width="48" height="20" rx="3" fill="#f85149"/>
+<text x="1250.0" y="248.1" fill="#ffffff" font-size="10" text-anchor="middle">168.5</text>
+<line x1="125.7" y1="300.9" x2="125.7" y2="300.9" stroke="#3fb950" stroke-width="2"/>
+<rect x="113.7" y="300.9" width="24.0" height="3.0" fill="#3fb950" rx="1"><title>2026-05-25 · O 70.8 H 70.8 L 70.8 C 70.8 · 0 commits</title></rect>
+<rect x="113.7" y="411.0" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
+<text x="125.7" y="433" fill="#8b949e" font-size="11" text-anchor="middle">May 25</text>
+<line x1="213.1" y1="184.6" x2="213.1" y2="300.9" stroke="#3fb950" stroke-width="2"/>
+<rect x="201.1" y="184.6" width="24.0" height="116.3" fill="#3fb950" rx="1"><title>2026-06-01 · O 70.8 H 270.8 L 70.8 C 270.8 · 15 commits</title></rect>
+<rect x="201.1" y="399.1" width="24.0" height="11.9" fill="#3fb950" opacity="0.55"/>
+<text x="213.1" y="433" fill="#8b949e" font-size="11" text-anchor="middle">Jun 01</text>
+<line x1="300.5" y1="175.2" x2="300.5" y2="230.7" stroke="#f85149" stroke-width="2"/>
+<rect x="288.5" y="182.1" width="24.0" height="48.6" fill="#f85149" rx="1"><title>2026-06-08 · O 275.1 H 286.8 L 191.5 C 191.5 · 11 commits</title></rect>
+<rect x="288.5" y="402.3" width="24.0" height="8.7" fill="#f85149" opacity="0.55"/>
+<line x1="387.8" y1="235.8" x2="387.8" y2="267.6" stroke="#f85149" stroke-width="2"/>
+<rect x="375.8" y="235.8" width="24.0" height="31.8" fill="#f85149" rx="1"><title>2026-06-15 · O 182.6 H 182.6 L 128.0 C 128.0 · 6 commits</title></rect>
+<rect x="375.8" y="406.2" width="24.0" height="4.8" fill="#f85149" opacity="0.55"/>
+<line x1="475.2" y1="248.7" x2="475.2" y2="280.2" stroke="#f85149" stroke-width="2"/>
+<rect x="463.2" y="262.0" width="24.0" height="18.2" fill="#f85149" rx="1"><title>2026-06-22 · O 137.6 H 160.6 L 106.3 C 106.3 · 5 commits</title></rect>
+<rect x="463.2" y="407.0" width="24.0" height="4.0" fill="#f85149" opacity="0.55"/>
+<line x1="562.6" y1="288.8" x2="562.6" y2="342.0" stroke="#f85149" stroke-width="2"/>
+<rect x="550.6" y="288.8" width="24.0" height="53.2" fill="#f85149" rx="1"><title>2026-06-29 · O 91.5 H 91.5 L 0.0 C 0.0 · 0 commits</title></rect>
+<rect x="550.6" y="411.0" width="24.0" height="1.0" fill="#f85149" opacity="0.55"/>
+<line x1="650.0" y1="342.0" x2="650.0" y2="342.0" stroke="#3fb950" stroke-width="2"/>
+<rect x="638.0" y="342.0" width="24.0" height="3.0" fill="#3fb950" rx="1"><title>2026-07-06 · O 0.0 H 0.0 L 0.0 C 0.0 · 0 commits</title></rect>
+<rect x="638.0" y="411.0" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
+<text x="650.0" y="433" fill="#8b949e" font-size="11" text-anchor="middle">Jul 06</text>
+<line x1="737.4" y1="342.0" x2="737.4" y2="342.0" stroke="#3fb950" stroke-width="2"/>
+<rect x="725.4" y="342.0" width="24.0" height="3.0" fill="#3fb950" rx="1"><title>2026-07-13 · O 0.0 H 0.0 L 0.0 C 0.0 · 0 commits</title></rect>
+<rect x="725.4" y="411.0" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
+<line x1="824.8" y1="327.2" x2="824.8" y2="342.0" stroke="#3fb950" stroke-width="2"/>
+<rect x="812.8" y="327.2" width="24.0" height="14.8" fill="#3fb950" rx="1"><title>2026-07-20 · O 0.0 H 25.4 L 0.0 C 25.4 · 1 commits</title></rect>
+<rect x="812.8" y="410.2" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
+<line x1="912.2" y1="327.2" x2="912.2" y2="342.0" stroke="#f85149" stroke-width="2"/>
+<rect x="900.2" y="327.2" width="24.0" height="14.8" fill="#f85149" rx="1"><title>2026-07-27 · O 25.4 H 25.4 L 0.0 C 0.0 · 0 commits</title></rect>
+<rect x="900.2" y="411.0" width="24.0" height="1.0" fill="#f85149" opacity="0.55"/>
+<line x1="999.5" y1="217.2" x2="999.5" y2="311.1" stroke="#3fb950" stroke-width="2"/>
+<rect x="987.5" y="217.2" width="24.0" height="94.0" fill="#3fb950" rx="1"><title>2026-08-03 · O 53.1 H 214.7 L 53.1 C 214.7 · 18 commits</title></rect>
+<rect x="987.5" y="396.7" width="24.0" height="14.3" fill="#3fb950" opacity="0.55"/>
+<text x="999.5" y="433" fill="#8b949e" font-size="11" text-anchor="middle">Aug 03</text>
+<line x1="1086.9" y1="165.8" x2="1086.9" y2="250.4" stroke="#3fb950" stroke-width="2"/>
+<rect x="1074.9" y="171.7" width="24.0" height="51.5" fill="#3fb950" rx="1"><title>2026-08-10 · O 204.4 H 303.1 L 157.6 C 293.0 · 68 commits</title></rect>
+<rect x="1074.9" y="357.0" width="24.0" height="54.0" fill="#3fb950" opacity="0.55"/>
+<line x1="1174.3" y1="159.1" x2="1174.3" y2="244.1" stroke="#f85149" stroke-width="2"/>
+<rect x="1162.3" y="171.7" width="24.0" height="72.4" fill="#f85149" rx="1"><title>2026-08-17 · O 293.0 H 314.6 L 168.5 C 168.5 · 25 commits</title></rect>
+<rect x="1162.3" y="391.1" width="24.0" height="19.9" fill="#f85149" opacity="0.55"/>
 <text x="82" y="349" fill="#6e7681" font-size="10">VOLUME</text>
 <text x="82" y="462" fill="#8b949e" font-size="12" font-weight="600">WATCHLIST</text>
 <text x="735" y="462" fill="#8b949e" font-size="11" text-anchor="end">31D COMMITS</text>
 <text x="865" y="462" fill="#8b949e" font-size="11" text-anchor="end">7D CHANGE</text>
 <text x="82" y="480" fill="#f0f6fc" font-size="14" font-weight="600">AxDr_L_Motor</text>
 <text x="735" y="480" fill="#c9d1d9" font-size="13" text-anchor="end">102</text>
-<text x="865" y="480" fill="#3fb950" font-size="13" font-weight="600" text-anchor="end">+19.0%</text>
-<polyline points="925.0,486.0 934.5,486.0 944.0,486.0 953.5,486.0 963.0,486.0 972.5,486.0 982.0,486.0 991.5,486.0 1001.0,486.0 1010.5,486.0 1020.0,486.0 1029.5,486.0 1039.0,484.9 1048.5,486.0 1058.0,482.2 1067.5,485.5 1077.0,486.0 1086.5,486.0 1096.0,486.0 1105.5,486.0 1115.0,486.0 1124.5,486.0 1134.0,485.5 1143.5,464.0 1153.0,475.3 1162.5,483.3 1172.0,486.0 1181.5,473.7 1191.0,485.5 1200.5,485.5 1210.0,486.0" fill="none" stroke="#3fb950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="865" y="480" fill="#f85149" font-size="13" font-weight="600" text-anchor="end">-51.6%</text>
+<polyline points="925.0,486.0 934.5,486.0 944.0,486.0 953.5,486.0 963.0,486.0 972.5,486.0 982.0,486.0 991.5,486.0 1001.0,486.0 1010.5,486.0 1020.0,486.0 1029.5,484.9 1039.0,486.0 1048.5,482.2 1058.0,485.5 1067.5,486.0 1077.0,486.0 1086.5,486.0 1096.0,486.0 1105.5,486.0 1115.0,486.0 1124.5,485.5 1134.0,464.0 1143.5,475.3 1153.0,483.3 1162.5,486.0 1172.0,473.7 1181.5,485.5 1191.0,485.5 1200.5,486.0 1210.0,486.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="82" y1="490" x2="1218" y2="490" stroke="#21262d" stroke-width="1"/>
 <text x="82" y="514" fill="#f0f6fc" font-size="14" font-weight="600">motor</text>
 <text x="735" y="514" fill="#c9d1d9" font-size="13" text-anchor="end">10</text>
 <text x="865" y="514" fill="#f85149" font-size="13" font-weight="600" text-anchor="end">-100.0%</text>
-<polyline points="925.0,520.0 934.5,520.0 944.0,520.0 953.5,520.0 963.0,516.9 972.5,520.0 982.0,520.0 991.5,520.0 1001.0,520.0 1010.5,520.0 1020.0,520.0 1029.5,520.0 1039.0,520.0 1048.5,520.0 1058.0,520.0 1067.5,520.0 1077.0,520.0 1086.5,516.9 1096.0,498.0 1105.5,520.0 1115.0,520.0 1124.5,520.0 1134.0,516.9 1143.5,520.0 1153.0,520.0 1162.5,520.0 1172.0,520.0 1181.5,520.0 1191.0,520.0 1200.5,520.0 1210.0,520.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="925.0,520.0 934.5,520.0 944.0,520.0 953.5,516.9 963.0,520.0 972.5,520.0 982.0,520.0 991.5,520.0 1001.0,520.0 1010.5,520.0 1020.0,520.0 1029.5,520.0 1039.0,520.0 1048.5,520.0 1058.0,520.0 1067.5,520.0 1077.0,516.9 1086.5,498.0 1096.0,520.0 1105.5,520.0 1115.0,520.0 1124.5,516.9 1134.0,520.0 1143.5,520.0 1153.0,520.0 1162.5,520.0 1172.0,520.0 1181.5,520.0 1191.0,520.0 1200.5,520.0 1210.0,520.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="82" y="564" fill="#6e7681" font-size="10">Index 100 = recent 7D matches prior 56D weekly baseline · log scale · Excludes BJKJKZHOU/BJKJKZHOU</text>
-<text x="1218" y="564" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-08-21 13:04 CST</text>
+<text x="1218" y="564" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-08-22 00:59 CST</text>
 </g>
 </svg>
