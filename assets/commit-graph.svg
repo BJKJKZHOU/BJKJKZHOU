@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="616" viewBox="0 0 1280 616" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="582" viewBox="0 0 1280 582" role="img" aria-labelledby="title desc">
 <title id="title">Zhou Heng&apos;s Development Market</title>
 <desc id="desc">90 day development activity index rendered as weekly candlesticks with moving averages, latest index line, commit volume and repository watchlist.</desc>
 <rect width="100%" height="100%" fill="#0d1117" rx="8"/>
@@ -6,7 +6,7 @@
 <text x="82" y="42" fill="#f0f6fc" font-size="23" font-weight="650">Zhou Heng&apos;s Development Market</text>
 <text x="82" y="70" fill="#8b949e" font-size="13">90D · weekly candles · activity index</text>
 <text x="82" y="101" fill="#f0f6fc" font-size="25" font-weight="650">112.7</text>
-<text x="158" y="101" fill="#f85149" font-size="14" font-weight="600">-35.1%</text>
+<text x="158" y="101" fill="#f85149" font-size="14" font-weight="600">-31.0%</text>
 <text x="1218" y="42" fill="#8b949e" font-size="12" text-anchor="end">7D 33 commits · 3/7 active days</text>
 <text x="1218" y="66" fill="#8b949e" font-size="12" text-anchor="end">Breadth 2 · Focus 91%</text>
 <line x1="82" y1="342.0" x2="1218" y2="342.0" stroke="#21262d" stroke-width="1"/>
@@ -72,20 +72,15 @@
 <text x="735" y="462" fill="#8b949e" font-size="11" text-anchor="end">31D COMMITS</text>
 <text x="865" y="462" fill="#8b949e" font-size="11" text-anchor="end">7D CHANGE</text>
 <text x="82" y="480" fill="#f0f6fc" font-size="14" font-weight="600">AxDr_L_Motor</text>
-<text x="735" y="480" fill="#c9d1d9" font-size="13" text-anchor="end">203</text>
-<text x="865" y="480" fill="#f85149" font-size="13" font-weight="600" text-anchor="end">-94.8%</text>
-<polyline points="925.0,485.5 934.5,464.0 944.0,475.3 953.5,483.3 963.0,486.0 972.5,473.7 982.0,485.5 991.5,485.5 1001.0,486.0 1010.5,486.0 1020.0,468.8 1029.5,481.7 1039.0,480.6 1048.5,486.0 1058.0,486.0 1067.5,486.0 1077.0,486.0 1086.5,482.8 1096.0,472.6 1105.5,483.3 1115.0,483.9 1124.5,486.0 1134.0,478.0 1143.5,484.4 1153.0,486.0 1162.5,484.9 1172.0,486.0 1181.5,486.0 1191.0,485.5 1200.5,486.0 1210.0,486.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="735" y="480" fill="#c9d1d9" font-size="13" text-anchor="end">202</text>
+<text x="865" y="480" fill="#f85149" font-size="13" font-weight="600" text-anchor="end">-94.2%</text>
+<polyline points="925.0,464.0 934.5,475.3 944.0,483.3 953.5,486.0 963.0,473.7 972.5,485.5 982.0,485.5 991.5,486.0 1001.0,486.0 1010.5,468.8 1020.0,481.7 1029.5,480.6 1039.0,486.0 1048.5,486.0 1058.0,486.0 1067.5,486.0 1077.0,482.8 1086.5,472.6 1096.0,483.3 1105.5,483.9 1115.0,486.0 1124.5,478.0 1134.0,484.4 1143.5,486.0 1153.0,484.9 1162.5,486.0 1172.0,486.0 1181.5,485.5 1191.0,486.0 1200.5,486.0 1210.0,486.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="82" y1="490" x2="1218" y2="490" stroke="#21262d" stroke-width="1"/>
 <text x="82" y="514" fill="#f0f6fc" font-size="14" font-weight="600">NMIXX-Motor-Studio</text>
 <text x="735" y="514" fill="#c9d1d9" font-size="13" text-anchor="end">30</text>
 <text x="865" y="514" fill="#3fb950" font-size="13" font-weight="600" text-anchor="end">NEW</text>
-<polyline points="925.0,520.0 934.5,520.0 944.0,520.0 953.5,520.0 963.0,520.0 972.5,520.0 982.0,520.0 991.5,520.0 1001.0,520.0 1010.5,520.0 1020.0,520.0 1029.5,520.0 1039.0,520.0 1048.5,520.0 1058.0,520.0 1067.5,520.0 1077.0,520.0 1086.5,520.0 1096.0,520.0 1105.5,520.0 1115.0,520.0 1124.5,520.0 1134.0,520.0 1143.5,520.0 1153.0,520.0 1162.5,520.0 1172.0,520.0 1181.5,520.0 1191.0,520.0 1200.5,498.0 1210.0,520.0" fill="none" stroke="#3fb950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="82" y1="524" x2="1218" y2="524" stroke="#21262d" stroke-width="1"/>
-<text x="82" y="548" fill="#f0f6fc" font-size="14" font-weight="600">motor</text>
-<text x="735" y="548" fill="#c9d1d9" font-size="13" text-anchor="end">1</text>
-<text x="865" y="548" fill="#8b949e" font-size="13" font-weight="600" text-anchor="end">0.0%</text>
-<polyline points="925.0,532.0 934.5,554.0 944.0,554.0 953.5,554.0 963.0,554.0 972.5,554.0 982.0,554.0 991.5,554.0 1001.0,554.0 1010.5,554.0 1020.0,554.0 1029.5,554.0 1039.0,554.0 1048.5,554.0 1058.0,554.0 1067.5,554.0 1077.0,554.0 1086.5,554.0 1096.0,554.0 1105.5,554.0 1115.0,554.0 1124.5,554.0 1134.0,554.0 1143.5,554.0 1153.0,554.0 1162.5,554.0 1172.0,554.0 1181.5,554.0 1191.0,554.0 1200.5,554.0 1210.0,554.0" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="82" y="598" fill="#6e7681" font-size="10">Index 100 = recent 7D matches prior 56D weekly baseline · log scale · Excludes BJKJKZHOU/BJKJKZHOU</text>
-<text x="1218" y="598" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-09-12 03:12 CST</text>
+<polyline points="925.0,520.0 934.5,520.0 944.0,520.0 953.5,520.0 963.0,520.0 972.5,520.0 982.0,520.0 991.5,520.0 1001.0,520.0 1010.5,520.0 1020.0,520.0 1029.5,520.0 1039.0,520.0 1048.5,520.0 1058.0,520.0 1067.5,520.0 1077.0,520.0 1086.5,520.0 1096.0,520.0 1105.5,520.0 1115.0,520.0 1124.5,520.0 1134.0,520.0 1143.5,520.0 1153.0,520.0 1162.5,520.0 1172.0,520.0 1181.5,520.0 1191.0,498.0 1200.5,520.0 1210.0,520.0" fill="none" stroke="#3fb950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="82" y="564" fill="#6e7681" font-size="10">Index 100 = recent 7D matches prior 56D weekly baseline · log scale · Excludes BJKJKZHOU/BJKJKZHOU</text>
+<text x="1218" y="564" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-09-13 02:32 CST</text>
 </g>
 </svg>
