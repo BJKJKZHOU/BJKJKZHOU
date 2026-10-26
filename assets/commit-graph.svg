@@ -5,9 +5,9 @@
 <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
 <text x="82" y="42" fill="#f0f6fc" font-size="23" font-weight="650">Zhou Heng&apos;s Development Market</text>
 <text x="82" y="70" fill="#8b949e" font-size="13">90D · weekly candles · activity index</text>
-<text x="82" y="101" fill="#f0f6fc" font-size="25" font-weight="650">26.9</text>
-<text x="158" y="101" fill="#f85149" font-size="14" font-weight="600">-41.3%</text>
-<text x="1218" y="42" fill="#8b949e" font-size="12" text-anchor="end">7D 18 commits · 3/7 active days</text>
+<text x="82" y="101" fill="#f0f6fc" font-size="25" font-weight="650">20.0</text>
+<text x="158" y="101" fill="#f85149" font-size="14" font-weight="600">-61.3%</text>
+<text x="1218" y="42" fill="#8b949e" font-size="12" text-anchor="end">7D 16 commits · 3/7 active days</text>
 <text x="1218" y="66" fill="#8b949e" font-size="12" text-anchor="end">Breadth 1 · Focus 100%</text>
 <line x1="82" y1="342.0" x2="1218" y2="342.0" stroke="#21262d" stroke-width="1"/>
 <text x="1230" y="346.0" fill="#8b949e" font-size="11">0</text>
@@ -17,13 +17,13 @@
 <text x="1230" y="200.7" fill="#8b949e" font-size="11">250</text>
 <line x1="82" y1="124.0" x2="1218" y2="124.0" stroke="#21262d" stroke-width="1"/>
 <text x="1230" y="128.0" fill="#8b949e" font-size="11">375</text>
-<polyline points="203.7,279.6 284.9,194.4 366.0,195.6 447.1,245.9 528.3,259.7 609.4,247.2 690.6,239.7 771.7,251.0 852.9,306.0 934.0,321.0 1015.1,304.6 1096.3,318.2 1177.4,326.8" fill="none" stroke="#d29922" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
-<polyline points="366.0,237.6 447.1,220.2 528.3,227.6 609.4,246.6 690.6,249.7 771.7,249.1 852.9,272.9 934.0,286.0 1015.1,305.3 1096.3,319.6 1177.4,315.7" fill="none" stroke="#58a6ff" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="82" y="116" fill="#d29922" font-size="11" font-weight="600">MA2 26.2</text>
-<text x="150" y="116" fill="#58a6ff" font-size="11" font-weight="600">MA4 45.2</text>
-<line x1="82" y1="326.4" x2="1218" y2="326.4" stroke="#3fb950" stroke-width="1" stroke-dasharray="5 5" stroke-opacity="0.55"/>
-<rect x="1226" y="316.4" width="48" height="20" rx="3" fill="#3fb950"/>
-<text x="1250.0" y="330.4" fill="#ffffff" font-size="10" text-anchor="middle">26.9</text>
+<polyline points="203.7,279.6 284.9,194.4 366.0,195.6 447.1,245.9 528.3,259.7 609.4,247.2 690.6,239.7 771.7,251.0 852.9,306.0 934.0,321.0 1015.1,304.6 1096.3,318.2 1177.4,328.8" fill="none" stroke="#d29922" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="366.0,237.6 447.1,220.2 528.3,227.6 609.4,246.6 690.6,249.7 771.7,249.1 852.9,272.9 934.0,286.0 1015.1,305.3 1096.3,319.6 1177.4,316.7" fill="none" stroke="#58a6ff" stroke-width="2.0" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="82" y="116" fill="#d29922" font-size="11" font-weight="600">MA2 22.8</text>
+<text x="150" y="116" fill="#58a6ff" font-size="11" font-weight="600">MA4 43.5</text>
+<line x1="82" y1="330.3" x2="1218" y2="330.3" stroke="#f85149" stroke-width="1" stroke-dasharray="5 5" stroke-opacity="0.55"/>
+<rect x="1226" y="320.0" width="48" height="20" rx="3" fill="#f85149"/>
+<text x="1250.0" y="334.0" fill="#ffffff" font-size="10" text-anchor="middle">20.0</text>
 <line x1="122.6" y1="327.2" x2="122.6" y2="342.0" stroke="#f85149" stroke-width="2"/>
 <rect x="110.6" y="327.2" width="24.0" height="14.8" fill="#f85149" rx="1"><title>2026-07-27 · O 25.4 H 25.4 L 0.0 C 0.0 · 0 commits</title></rect>
 <rect x="110.6" y="411.0" width="24.0" height="1.0" fill="#f85149" opacity="0.55"/>
@@ -67,28 +67,28 @@
 <line x1="1096.3" y1="311.9" x2="1096.3" y2="327.2" stroke="#f85149" stroke-width="2"/>
 <rect x="1084.3" y="315.4" width="24.0" height="11.8" fill="#f85149" rx="1"><title>2026-10-19 · O 45.8 H 51.8 L 25.5 C 25.5 · 18 commits</title></rect>
 <rect x="1084.3" y="403.3" width="24.0" height="7.7" fill="#f85149" opacity="0.55"/>
-<line x1="1177.4" y1="326.4" x2="1177.4" y2="326.4" stroke="#3fb950" stroke-width="2"/>
-<rect x="1165.4" y="326.4" width="24.0" height="3.0" fill="#3fb950" rx="1"><title>2026-10-26 · O 26.9 H 26.9 L 26.9 C 26.9 · 0 commits</title></rect>
-<rect x="1165.4" y="411.0" width="24.0" height="1.0" fill="#3fb950" opacity="0.55"/>
+<line x1="1177.4" y1="324.2" x2="1177.4" y2="330.3" stroke="#f85149" stroke-width="2"/>
+<rect x="1165.4" y="324.2" width="24.0" height="6.1" fill="#f85149" rx="1"><title>2026-10-26 · O 30.6 H 30.6 L 20.0 C 20.0 · 1 commits</title></rect>
+<rect x="1165.4" y="410.6" width="24.0" height="1.0" fill="#f85149" opacity="0.55"/>
 <text x="82" y="349" fill="#6e7681" font-size="10">VOLUME</text>
 <text x="82" y="462" fill="#8b949e" font-size="12" font-weight="600">WATCHLIST</text>
 <text x="735" y="462" fill="#8b949e" font-size="11" text-anchor="end">31D COMMITS</text>
 <text x="865" y="462" fill="#8b949e" font-size="11" text-anchor="end">7D CHANGE</text>
 <text x="82" y="480" fill="#f0f6fc" font-size="14" font-weight="600">AxDr_L_Motor</text>
-<text x="735" y="480" fill="#c9d1d9" font-size="13" text-anchor="end">84</text>
-<text x="865" y="480" fill="#f85149" font-size="13" font-weight="600" text-anchor="end">-30.8%</text>
-<polyline points="925.0,486.0 934.5,486.0 944.0,486.0 953.5,486.0 963.0,479.2 972.5,486.0 982.0,486.0 991.5,486.0 1001.0,486.0 1010.5,486.0 1020.0,467.4 1029.5,486.0 1039.0,486.0 1048.5,486.0 1058.0,469.1 1067.5,467.4 1077.0,479.2 1086.5,482.6 1096.0,474.2 1105.5,486.0 1115.0,486.0 1124.5,464.0 1134.0,479.2 1143.5,486.0 1153.0,480.9 1162.5,486.0 1172.0,486.0 1181.5,486.0 1191.0,464.0 1200.5,482.6 1210.0,486.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="735" y="480" fill="#c9d1d9" font-size="13" text-anchor="end">85</text>
+<text x="865" y="480" fill="#f85149" font-size="13" font-weight="600" text-anchor="end">-40.7%</text>
+<polyline points="925.0,486.0 934.5,486.0 944.0,486.0 953.5,479.2 963.0,486.0 972.5,486.0 982.0,486.0 991.5,486.0 1001.0,486.0 1010.5,467.4 1020.0,486.0 1029.5,486.0 1039.0,486.0 1048.5,469.1 1058.0,467.4 1067.5,479.2 1077.0,482.6 1086.5,474.2 1096.0,486.0 1105.5,486.0 1115.0,464.0 1124.5,479.2 1134.0,486.0 1143.5,480.9 1153.0,486.0 1162.5,486.0 1172.0,486.0 1181.5,464.0 1191.0,482.6 1200.5,484.3 1210.0,486.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="82" y1="490" x2="1218" y2="490" stroke="#21262d" stroke-width="1"/>
 <text x="82" y="514" fill="#f0f6fc" font-size="14" font-weight="600">zhouhengai</text>
 <text x="735" y="514" fill="#c9d1d9" font-size="13" text-anchor="end">8</text>
 <text x="865" y="514" fill="#8b949e" font-size="13" font-weight="600" text-anchor="end">0.0%</text>
-<polyline points="925.0,520.0 934.5,520.0 944.0,520.0 953.5,520.0 963.0,520.0 972.5,520.0 982.0,520.0 991.5,520.0 1001.0,520.0 1010.5,520.0 1020.0,520.0 1029.5,520.0 1039.0,520.0 1048.5,506.8 1058.0,498.0 1067.5,520.0 1077.0,520.0 1086.5,520.0 1096.0,520.0 1105.5,520.0 1115.0,520.0 1124.5,520.0 1134.0,520.0 1143.5,520.0 1153.0,520.0 1162.5,520.0 1172.0,520.0 1181.5,520.0 1191.0,520.0 1200.5,520.0 1210.0,520.0" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="925.0,520.0 934.5,520.0 944.0,520.0 953.5,520.0 963.0,520.0 972.5,520.0 982.0,520.0 991.5,520.0 1001.0,520.0 1010.5,520.0 1020.0,520.0 1029.5,520.0 1039.0,506.8 1048.5,498.0 1058.0,520.0 1067.5,520.0 1077.0,520.0 1086.5,520.0 1096.0,520.0 1105.5,520.0 1115.0,520.0 1124.5,520.0 1134.0,520.0 1143.5,520.0 1153.0,520.0 1162.5,520.0 1172.0,520.0 1181.5,520.0 1191.0,520.0 1200.5,520.0 1210.0,520.0" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="82" y1="524" x2="1218" y2="524" stroke="#21262d" stroke-width="1"/>
 <text x="82" y="548" fill="#f0f6fc" font-size="14" font-weight="600">NMIXX</text>
-<text x="735" y="548" fill="#c9d1d9" font-size="13" text-anchor="end">6</text>
+<text x="735" y="548" fill="#c9d1d9" font-size="13" text-anchor="end">4</text>
 <text x="865" y="548" fill="#8b949e" font-size="13" font-weight="600" text-anchor="end">0.0%</text>
-<polyline points="925.0,539.3 934.5,554.0 944.0,554.0 953.5,554.0 963.0,546.7 972.5,532.0 982.0,554.0 991.5,554.0 1001.0,554.0 1010.5,554.0 1020.0,554.0 1029.5,554.0 1039.0,554.0 1048.5,554.0 1058.0,554.0 1067.5,554.0 1077.0,554.0 1086.5,554.0 1096.0,554.0 1105.5,554.0 1115.0,554.0 1124.5,554.0 1134.0,554.0 1143.5,554.0 1153.0,554.0 1162.5,554.0 1172.0,554.0 1181.5,554.0 1191.0,554.0 1200.5,554.0 1210.0,554.0" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="925.0,554.0 934.5,554.0 944.0,554.0 953.5,546.7 963.0,532.0 972.5,554.0 982.0,554.0 991.5,554.0 1001.0,554.0 1010.5,554.0 1020.0,554.0 1029.5,554.0 1039.0,554.0 1048.5,554.0 1058.0,554.0 1067.5,554.0 1077.0,554.0 1086.5,554.0 1096.0,554.0 1105.5,554.0 1115.0,554.0 1124.5,554.0 1134.0,554.0 1143.5,554.0 1153.0,554.0 1162.5,554.0 1172.0,554.0 1181.5,554.0 1191.0,554.0 1200.5,554.0 1210.0,554.0" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="82" y="598" fill="#6e7681" font-size="10">Index 100 = recent 7D matches prior 56D weekly baseline · log scale · Excludes BJKJKZHOU/BJKJKZHOU</text>
-<text x="1218" y="598" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-10-26 03:09 CST</text>
+<text x="1218" y="598" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-10-27 05:06 CST</text>
 </g>
 </svg>
