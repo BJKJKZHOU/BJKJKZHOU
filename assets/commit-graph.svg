@@ -24,9 +24,9 @@
 <line x1="82" y1="342.0" x2="1218" y2="342.0" stroke="#3fb950" stroke-width="1" stroke-dasharray="5 5" stroke-opacity="0.55"/>
 <rect x="1226" y="320.0" width="48" height="20" rx="3" fill="#3fb950"/>
 <text x="1250.0" y="334.0" fill="#ffffff" font-size="10" text-anchor="middle">0.0</text>
-<line x1="125.7" y1="167.0" x2="125.7" y2="247.0" stroke="#f85149" stroke-width="2"/>
-<rect x="113.7" y="167.0" width="24.0" height="80.0" fill="#f85149" rx="1"><title>2026-08-24 · O 220.8 H 220.8 L 119.8 C 119.8 · 24 commits</title></rect>
-<rect x="113.7" y="400.7" width="24.0" height="10.3" fill="#f85149" opacity="0.55"/>
+<line x1="125.7" y1="191.5" x2="125.7" y2="247.0" stroke="#f85149" stroke-width="2"/>
+<rect x="113.7" y="191.5" width="24.0" height="55.5" fill="#f85149" rx="1"><title>2026-08-24 · O 189.9 H 189.9 L 119.8 C 119.8 · 16 commits</title></rect>
+<rect x="113.7" y="404.1" width="24.0" height="6.9" fill="#f85149" opacity="0.55"/>
 <text x="125.7" y="433" fill="#8b949e" font-size="11" text-anchor="middle">Aug 24</text>
 <line x1="213.1" y1="204.3" x2="213.1" y2="231.0" stroke="#3fb950" stroke-width="2"/>
 <rect x="201.1" y="212.4" width="24.0" height="7.9" fill="#3fb950" rx="1"><title>2026-08-31 · O 153.5 H 173.7 L 140.0 C 163.4 · 52 commits</title></rect>
@@ -74,13 +74,13 @@
 <text x="82" y="480" fill="#f0f6fc" font-size="14" font-weight="600">AxDr_L_Motor</text>
 <text x="735" y="480" fill="#c9d1d9" font-size="13" text-anchor="end">24</text>
 <text x="865" y="480" fill="#f85149" font-size="13" font-weight="600" text-anchor="end">-100.0%</text>
-<polyline points="925.0,486.0 934.5,486.0 944.0,464.0 953.5,482.6 963.0,484.3 972.5,486.0 982.0,486.0 991.5,486.0 1001.0,486.0 1010.5,482.6 1020.0,486.0 1029.5,484.3 1039.0,486.0 1048.5,486.0 1058.0,486.0 1067.5,486.0 1077.0,482.6 1086.5,486.0 1096.0,486.0 1105.5,480.9 1115.0,486.0 1124.5,486.0 1134.0,486.0 1143.5,486.0 1153.0,486.0 1162.5,486.0 1172.0,486.0 1181.5,486.0 1191.0,486.0 1200.5,486.0 1210.0,486.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="925.0,486.0 934.5,464.0 944.0,482.6 953.5,484.3 963.0,486.0 972.5,486.0 982.0,486.0 991.5,486.0 1001.0,482.6 1010.5,486.0 1020.0,484.3 1029.5,486.0 1039.0,486.0 1048.5,486.0 1058.0,486.0 1067.5,482.6 1077.0,486.0 1086.5,486.0 1096.0,480.9 1105.5,486.0 1115.0,486.0 1124.5,486.0 1134.0,486.0 1143.5,486.0 1153.0,486.0 1162.5,486.0 1172.0,486.0 1181.5,486.0 1191.0,486.0 1200.5,486.0 1210.0,486.0" fill="none" stroke="#f85149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="82" y1="490" x2="1218" y2="490" stroke="#21262d" stroke-width="1"/>
 <text x="82" y="514" fill="#f0f6fc" font-size="14" font-weight="600">NMIXX-Motor-Studio</text>
 <text x="735" y="514" fill="#c9d1d9" font-size="13" text-anchor="end">2</text>
 <text x="865" y="514" fill="#8b949e" font-size="13" font-weight="600" text-anchor="end">0.0%</text>
-<polyline points="925.0,520.0 934.5,520.0 944.0,520.0 953.5,520.0 963.0,520.0 972.5,520.0 982.0,520.0 991.5,520.0 1001.0,520.0 1010.5,498.0 1020.0,520.0 1029.5,520.0 1039.0,520.0 1048.5,520.0 1058.0,520.0 1067.5,520.0 1077.0,520.0 1086.5,520.0 1096.0,520.0 1105.5,520.0 1115.0,520.0 1124.5,520.0 1134.0,520.0 1143.5,520.0 1153.0,520.0 1162.5,520.0 1172.0,520.0 1181.5,520.0 1191.0,520.0 1200.5,520.0 1210.0,520.0" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="925.0,520.0 934.5,520.0 944.0,520.0 953.5,520.0 963.0,520.0 972.5,520.0 982.0,520.0 991.5,520.0 1001.0,498.0 1010.5,520.0 1020.0,520.0 1029.5,520.0 1039.0,520.0 1048.5,520.0 1058.0,520.0 1067.5,520.0 1077.0,520.0 1086.5,520.0 1096.0,520.0 1105.5,520.0 1115.0,520.0 1124.5,520.0 1134.0,520.0 1143.5,520.0 1153.0,520.0 1162.5,520.0 1172.0,520.0 1181.5,520.0 1191.0,520.0 1200.5,520.0 1210.0,520.0" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="82" y="564" fill="#6e7681" font-size="10">Index 100 = recent 7D matches prior 56D weekly baseline · log scale · Excludes BJKJKZHOU/BJKJKZHOU</text>
-<text x="1218" y="564" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-11-21 06:43 CST</text>
+<text x="1218" y="564" fill="#6e7681" font-size="10" text-anchor="end">Updated 2026-11-22 05:45 CST</text>
 </g>
 </svg>
